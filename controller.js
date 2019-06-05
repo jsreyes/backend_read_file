@@ -17,7 +17,7 @@ function readFile(req, res) {
     var ext_split = file_name.split('\.');
     var file_ext = ext_split[1];
 
-    if (file_ext == 'txt') {
+    if (file_ext === 'txt') {
 
       fs.readFile(file_path, 'utf-8', (err, data) => {
         if (err) {

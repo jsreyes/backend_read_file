@@ -1,8 +1,6 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-var fs = require('fs');
-var readline = require('readline');
 
 // Para leer archivo del Post
 var multipart = require('connect-multiparty');
