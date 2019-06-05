@@ -1,21 +1,21 @@
 'use strict'
 
-var fs = require('fs');
-var readline = require('readline');
+const fs = require('fs');
+const readline = require('readline');
 
 
 function readFile(req, res) {
 
   if (req.files) {
     // Se obtiene path del archivo
-    var file_path = req.files.file.path;
+    const file_path = req.files.file.path;
 
     // Para cortar el string para saber el nombre
-    var file_name = req.files.file.name;
+    const file_name = req.files.file.name;
 
     // Se obtiene la extensión del archivo
-    var ext_split = file_name.split('\.');
-    var file_ext = ext_split[1];
+    const ext_split = file_name.split('\.');
+    const file_ext = ext_split[1];
 
     if (file_ext === 'txt') {
 
@@ -31,8 +31,8 @@ function readFile(req, res) {
           const array = [];
 
           reader.on('line', line => {
-            var readLine = line.replace(/['"']+/g, '');
-            var readIndex = readLine.split('/');
+            const readLine = line.replace(/['"']+/g, '');
+            const readIndex = readLine.split('/');
             readIndex.map(j => {
               array.push(j.trim());
             });
@@ -44,10 +44,10 @@ function readFile(req, res) {
         }
       });
     } else {
-      res.status(200).send({ message: ' Extensión del archivo no valida' });
+      res.status(404).send({ message: ' Extensión del archivo no valida' });
     }
   } else {
-    res.status(200).send({ message: 'No has subido ningún archivo plano' });
+    res.status(404).send({ message: 'No has subido ningún archivo plano' });
   }
 }
 

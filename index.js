@@ -1,19 +1,19 @@
-var express = require('express');
-var app = express();
-var bodyParser = require('body-parser');
+const express = require('express');
+const app = express();
+const bodyParser = require('body-parser');
 
 // Para leer archivo del Post
-var multipart = require('connect-multiparty');
-var md_upload = multipart();
+const multipart = require('connect-multiparty');
+const md_upload = multipart();
 
 // Controlador que lee el archivo
-var controller = require('./controller');
+const controller = require('./controller');
 
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-var HTTP_PORT = 5000;
+const HTTP_PORT = 5000;
 
 app.listen(HTTP_PORT, () => {
   console.log("El servidor está inicializado en el puerto", HTTP_PORT);
