@@ -6,6 +6,9 @@ const readline = require('readline');
 
 function readFile(req, res) {
 
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+
   if (req.files) {
     // Se obtiene path del archivo
     const file_path = req.files.file.path;
